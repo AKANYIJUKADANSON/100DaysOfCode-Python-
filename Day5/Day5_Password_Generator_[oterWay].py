@@ -9,36 +9,52 @@ nr_letters= int(input("How many letters would you like in your password?\n"))
 nr_symbols = int(input(f"How many symbols would you like?\n"))
 nr_numbers = int(input(f"How many numbers would you like?\n"))
 
-#Eazy Level - Order not randomised:
-#e.g. 4 letter, 2 symbol, 2 number = JduE&!91
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Eazy Level - Order not randomised:~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~e.g. 4 letter, 2 symbol, 2 number = JduE&!91~~~~~~~~~~~~~~
 
 # Randomize the letters
 password = []
 for letter in range(1, nr_letters+1):
+    # A 1 is added because the range will begin from the starting value and end with the last one but not included, so to cater for it we add a 1.
+    # For example if the user wants to display values from 1 to 10 and use the for i in range(1, 10), it will display values from 1 to 9, so to display or include 10th value we just use for i in range(1, 10+1)
     new_char = random.choice(letters)
     password.append(new_char)
-
-# Deal with numbers
-for num in range(1, nr_numbers+1):
-    nums = random.choice(numbers)
-    password.append(nums)
 
 # Deal with symbols
 for symbol in range(1, nr_symbols+1):
     extracted_symbol = random.choice(symbols)
     password.append(extracted_symbol)
     
+# Deal with numbers
+for num in range(1, nr_numbers+1):
+    nums = random.choice(numbers)
+    password.append(nums)
+    
 
-print(password)
-random.shuffle(password)
-print(password)
+# print(password)
 
 # Change the array items into a string by looping through and concatenate all the characters
 new_password = ""
 for pass_char in password:
     new_password += pass_char
     
-print(new_password)             
+print(f"Easy password: {new_password}")             
+
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Hard Level - Order not randomised:~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~e.g. 3 letter, 3 symbol, 2 number = J^2&E!9f~~~~~~~~~~~~~~
+
+# Randomize the letters
+# Use the shuffle() function to alter the list items
+random.shuffle(password)
+
+strong_password = ""
+for char in password:
+    strong_password += char
+print(f"Shuffled password: {strong_password}")
+
+
+
 
 
 ## ///////////////************** DOCUMENTATION**************//////////////////////

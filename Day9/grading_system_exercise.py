@@ -11,7 +11,7 @@ student_grades = {}
 
 # Write your code below to add the grades to the new dictionary
 
-# First get all the student and their marks by looping through
+# First get all the students and their marks by looping through
 for student in student_scores:
     score = student_scores[student]
     
